@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+  background-color: #292929;
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.Font-size {
+  font-size: 25px;
+}
+/* .App-header {
+  background-color: #222222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+.App-bg{
+  background-color: #232323;
+    width: 100vw;
+    height: 100vh;
+    /* padding: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.App-center {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.BtnSubmit-size{
+  width: 90px;
+  height: 45px;
+}
+
+.Input-box{
+  text-align: center;
+  width: 200px;
+  height: 25px;
+}
+
+.Margin-left-10 {
+    margin-left: 10px;
+}
+
+.Margin-right-10 {
+    margin-right: 10px;
+}
+
+p {
+  color: #e96e96;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
