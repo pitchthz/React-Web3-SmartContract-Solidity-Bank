@@ -16,11 +16,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-// import Contacts from '../build/contracts/Contacts.json';
-// ReactTestJob\react-test-job\build\contracts\Contacts.json
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
   // usf
   const [account, setAccount] = useState(); // state variable to set account.
   const [depositAmout, setdepositAmout] = useState("");
@@ -69,6 +76,7 @@ function App() {
   // const tryDeposit = await getContract.methods.Deposit().call()
   const tryDeposit = async () => {
     console.log("TryDrposit ");
+    handleToggle();
     const contract = getContract();
     await contract.methods
       .Deposit(parseInt(depositAmout))
@@ -83,10 +91,12 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    handleClose();
   };
 
   const tryWithdraw = async () => {
     console.log("Withdraw ");
+    handleToggle();
     const contract = getContract();
     await contract.methods
       .Withdraw(parseInt(withdrawAmout))
@@ -95,10 +105,12 @@ function App() {
         showBalance(res);
         console.log("Withdraw", res);
         setwithdrawAmout(" ");
+        showBillList(res);
       })
       .catch((err) => {
         console.log(err);
       });
+    handleClose();
   };
 
   const showBalance = async () => {
@@ -277,6 +289,14 @@ function App() {
             </TableBody>
           </Table>
         </TableContainer>
+
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={open}
+          onClick={handleClose}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </div>
     </div>
   );
